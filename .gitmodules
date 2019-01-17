@@ -1,0 +1,3 @@
+[submodule "laradock_nanfl"]
+	path = laradock_nanfl
+	url = https://github.com/Laradock/laradock.git
