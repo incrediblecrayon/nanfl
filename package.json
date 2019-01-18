@@ -1,6 +1,8 @@
 {
     "private": true,
     "scripts": {
+        "start": "cd laradock_nanfl && docker-compose up -d postgres nginx",
+        "enter": "cd laradock_nanfl && docker-compose exec --user=laradock workspace bash",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
