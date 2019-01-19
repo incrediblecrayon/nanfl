@@ -19,6 +19,8 @@ class CreateTeamsTable extends Migration
             $table->increments('id');
             $table->string('name',100)->unique();
             $table->string('city',100);
+            $table->string('color_main','7');
+            $table->string('color_accent','7');
             $table->timestamps();
         });
     }
