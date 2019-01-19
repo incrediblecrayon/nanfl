@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
 //        DB::table('users')->truncate();
 
          $this->call(UserSeeder::class);
+         $this->call(TeamAndPlayerSeeder::class);
     }
 }

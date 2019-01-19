@@ -11,13 +11,19 @@ class Team extends Model
         'city'
     ];
 
-    //Relations
+    protected $appends = [
+        'title'
+    ];
+
+//    region Relations
     public function players()
     {
         return $this->hasMany('App\Models\Player');
     }
+//    endregion
 
-    //Adjusting Attributes
+
+//    region Attributes
     public function getNameAttribute($value)
     {
         return title_case($value);
@@ -37,4 +43,11 @@ class Team extends Model
     {
         $this->attributes['city'] = strtolower($value);
     }
+
+    //Formatted Team Name.
+    public function getTitleAttribute()
+    {
+        return title_case($this->attributes['city'] . " " . $this->attributes['name']);
+    }
+//    endregion
 }
