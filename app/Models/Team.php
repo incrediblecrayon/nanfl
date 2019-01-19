@@ -8,7 +8,9 @@ class Team extends Model
 {
     protected $fillable = [
         'name',
-        'city'
+        'city',
+        'color_main',
+        'color_accent'
     ];
 
     protected $appends = [
