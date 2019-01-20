@@ -8,15 +8,19 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithExceptionHandling;
 use App\Models\Team;
 use App\Models\Player;
+use App\User;
 
 class APIPlayerEndpointTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase,InteractsWithExceptionHandling;
+
+    protected $user;
 
     protected function setUp()
     {
         parent::setUp();
 //        $this->withoutExceptionHandling();
+        $this->user = factory(User::class)->create();
     }
 
     /**
@@ -88,7 +92,8 @@ class APIPlayerEndpointTest extends TestCase
         $team = factory(Team::class)->create();
         $player = factory(Player::class)->make(['team_id' => $team->id]);
 
-        $response = $this->json('POST','/api/player',$player->toArray());
+        $response = $this->actingAs($this->user,'api')
+            ->json('POST','/api/player',$player->toArray());
 
         $response
             ->assertStatus(201)
@@ -106,10 +111,11 @@ class APIPlayerEndpointTest extends TestCase
         $team = factory(Team::class)->create();
         $player = factory(Player::class)->create(['team_id' => $team->id]);
 
-        $response = $this->json('PUT','/api/player/' . $player->id,[
-            'first_name' => 'tester',
-            'last_name' => 'testington'
-        ]);
+        $response = $this->actingAs($this->user,'api')
+            ->json('PUT','/api/player/' . $player->id,[
+                'first_name' => 'tester',
+                'last_name' => 'testington'
+            ]);
 
         $response
             ->assertStatus(200)
@@ -129,7 +135,8 @@ class APIPlayerEndpointTest extends TestCase
         $team = factory(Team::class)->create();
         $player = factory(Player::class)->create(['team_id' => $team->id]);
 
-        $response = $this->json('DELETE','/api/player/' . $player->id);
+        $response = $this->actingAs($this->user,'api')
+            ->json('DELETE','/api/player/' . $player->id);
 
         $response
             ->assertStatus(204);

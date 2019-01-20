@@ -8,11 +8,20 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithExceptionHandling;
 use App\Models\Team;
 use App\Models\Player;
-use Log;
+use App\User;
 
 class APITeamEndpointTest extends TestCase
 {
     use RefreshDatabase, InteractsWithExceptionHandling;
+
+    protected $user;
+
+    protected function setUp()
+    {
+        parent::setUp();
+//        $this->withoutExceptionHandling();
+        $this->user = factory(User::class)->create();
+    }
 
     /**
      * Get All Teams Test
@@ -57,9 +66,10 @@ class APITeamEndpointTest extends TestCase
     {
         $team = factory(Team::class)->create();
 
-        $response = $this->json('PUT','/api/team/' . $team->id,[
-            'name' => 'testers'
-        ]);
+        $response = $this->actingAs($this->user,'api')
+            ->json('PUT','/api/team/' . $team->id,[
+                'name' => 'testers'
+            ]);
 
         $response
             ->assertStatus(200)
@@ -73,12 +83,10 @@ class APITeamEndpointTest extends TestCase
      */
     public function testCreateNewTeam()
     {
-        $this->withoutExceptionHandling();
-
         $team = factory(Team::class)->make();
-        Log::info("Team: " . $team->toJson());
 
-        $response = $this->json('POST','/api/team', $team->toArray());
+        $response = $this->actingAs($this->user,'api')
+            ->json('POST','/api/team', $team->toArray());
 
         $response
             ->assertStatus(201)
@@ -94,7 +102,8 @@ class APITeamEndpointTest extends TestCase
     {
         $team = factory(Team::class)->create();
 
-        $response = $this->json('DELETE','/api/team/' . $team->id);
+        $response = $this->actingAs($this->user,'api')
+            ->json('DELETE','/api/team/' . $team->id);
 
         $response
             ->assertStatus(204);
