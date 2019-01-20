@@ -41,3 +41,4 @@ Instructions for first run. Docker is not required but it makes things a little 
     
 # deploy
 - In container: Set up SSH agent: `$ eval $(ssh-agent) && ssh-add`
+- `vendor/bin/dep deploy production --branch=master -vvv`
