@@ -7,6 +7,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
+
+    //TODO Test web endpoints.
+
     /**
      * A basic test example.
      *

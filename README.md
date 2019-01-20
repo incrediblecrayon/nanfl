@@ -15,12 +15,12 @@ Instructions for first run. Docker is not required but it makes things a little 
 - From Application Root:`$ cd laradock_nanfl && docker-compose up -d nginx postgres && cd ..`
     - **Please Note:** This may take some time to complete.
 - at application root, copy .env.example and fill with appropriate values.
-- `$touch database/database.sqlite`
+- `$touch database/database.sqlite` + testing
 - Enter Container: `$ cd laradock_nanfl && docker-compose exec --user=laradock workspace bash`
 - From Within Container,at application root:
  >`$composer install`
  >
- >`$php artisan key:generate`
+ >`$php artisan key:generate` + generate --env=testing
  >
  >`$npm install`
  >`$php artisan migrate`
