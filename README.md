@@ -38,3 +38,7 @@ Instructions for first run. Docker is not required but it makes things a little 
 
 - To shutdown container, from application root:
     -`$ cd laradock_nanfl && docker-compose down`
+    
+# deploy
+- In container: Set up SSH agent: `$ eval $(ssh-agent) && ssh-add`
+- `vendor/bin/dep deploy production --branch=master -vvv`
