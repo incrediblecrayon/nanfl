@@ -12,11 +12,14 @@ Instructions for first run. Docker is not required but it makes things a little 
 - Make local_setup.sh executable
 - run local_setup.sh
     - **Please Note:** Running local setup will forward the ~/.ssh directory to the Docker container.
-- From Application Root:`$ cd laradock_nanfl && docker-compose up -d nginx postgres && cd ..`
+- From Application Root:`$ cd laradock_nanfl && docker-compose up -d nginx && cd ..`
     - **Please Note:** This may take some time to complete.
 - at application root, copy .env.example and fill with appropriate values.
-- `$touch database/database.sqlite` + testing
-- Enter Container: `$ cd laradock_nanfl && docker-compose exec --user=laradock workspace bash`
+- at application root, create both sqlite databases.
+    - `$touch database/database.sqlite`
+    - `$touch database/testing_database.sqlite`
+- Enter Container: 
+    -`$ cd laradock_nanfl && docker-compose exec --user=laradock workspace bash`
 - From Within Container,at application root:
  >`$composer install`
  >
