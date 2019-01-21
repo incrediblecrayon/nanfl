@@ -15,6 +15,6 @@ class HeaderTeamInfoComposer
      */
     public function compose(View $view)
     {
-        $view->with('teams', Team::all()); //TODO - Limit what data gets passed, only need id,title.
+        $view->with('teams', Team::orderBy('name','asc')->get());
     }
 }

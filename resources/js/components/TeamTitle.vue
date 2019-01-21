@@ -25,18 +25,6 @@
                 required: true,
                 type: Object
             }
-            // teamTitle:{
-            //     type: String,
-            //     required: true
-            // },
-            // teamCity:{
-            //     type: String,
-            //     required: true
-            // },
-            // teamName:{
-            //     type: String,
-            //     required: true
-            // }
         }
     }
 </script>

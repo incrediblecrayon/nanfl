@@ -5,6 +5,15 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/team/create">Create Team</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/player/create">Create Player</a>
+            </li>
+        </ul>
+
         <team-select :teams-data="{{json_encode($teams)}}" teams-endpoint="/api/team"/>
     </div>
 </nav>

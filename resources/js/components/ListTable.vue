@@ -15,7 +15,12 @@
             </thead>
             <tbody>
             <tr v-for="player in listData">
-                <th scope="row">{{player.id}}</th>
+                <th scope="row">
+                    <span class="d-none d-lg-block">{{player.id}}</span>
+                    <span class="d-lg-none">
+                        <a :href="`/player/${player.id}/edit`"><i class="far fa-edit"></i>&nbsp&nbsp{{player.id}}</a>
+                    </span>
+                </th>
                 <td>{{player.first_name}}</td>
                 <td>{{player.last_name}}</td>
                 <td class="d-none d-lg-block">
