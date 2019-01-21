@@ -55,9 +55,9 @@ task('bundlejs', function () {
     runLocally("npm run production");
 
     //Upload Bundled JS Files
-//    upload('public/js/*', '{{release_path}}/public/js/');
-    upload('public/css/*', '{{release_path}}/public/css/');
-    upload('public/img/*', '{{release_path}}/public/img/');
+    upload('public/js/app.js', '{{release_path}}/public/js/');
+    upload('/var/www/public/css/app.css', '{{release_path}}/public/css/');
+//    upload('public/img/*', '{{release_path}}/public/img/');
 //    upload('public/images/*', '{{release_path}}/public/images/');
 //    upload('public/vendors/*', '{{release_path}}/public/vendors/');
 //    upload('public/fonts/*', '{{release_path}}/public/fonts/');
