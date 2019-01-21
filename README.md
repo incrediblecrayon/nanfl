@@ -1,5 +1,5 @@
-# nanfl
-Not Actually the National Football League
+# NaNFL
+Not a National Football League
 
 # Local Environment Configuration
 Instructions for first run. Docker is not required but it makes things a little easier.
@@ -19,21 +19,16 @@ Instructions for first run. Docker is not required but it makes things a little 
     - `$touch database/database.sqlite`
     - `$touch database/testing_database.sqlite`
 - Enter Container: 
-    -`$ cd laradock_nanfl && docker-compose exec --user=laradock workspace bash`
+    -`$cd laradock_nanfl && docker-compose exec --user=laradock workspace bash`
 - From Within Container,at application root:
- >`$composer install`
- >
- >`$php artisan key:generate` + generate --env=testing
- >
- >`$npm install`
- >`$php artisan migrate`
- >`$php artisan passport:install`
- 
- - run seeder
- 
- - create user token
- - add token to env
- - flush config
+    - `$composer install`
+    - `$php artisan key:generate`
+    - `$npm install`
+    - `$php artisan migrate`
+    - `$php artisan passport:install`
+    - `$php artisan db:seed`
+    - Create User and User personal Access token in tinker:
+    - flush config
  
 ## Docker Commands
 - To enter the container, from application root:
@@ -43,5 +38,70 @@ Instructions for first run. Docker is not required but it makes things a little 
     -`$ cd laradock_nanfl && docker-compose down`
     
 # deploy
-- In container: Set up SSH agent: `$ eval $(ssh-agent) && ssh-add`
-- `vendor/bin/dep deploy production --branch=master -vvv`
+- In container:
+    - Set up SSH Agent from forwarded file: `$ eval $(ssh-agent) && ssh-add`
+    - `vendor/bin/dep deploy production --branch=master -vvv`
+    
+    
+# API Documentation
+Some Basic API Documentation
+
+## Team
+### Show All Teams
+- path: `/api/team`
+- method: GET
+- auth: public
+
+### Show Team of ID with Players
+- path: `/api/team/{ID}`
+- method: GET
+- auth: pubic
+
+### Create Team
+- path: `/api/team`
+- method: POST
+- auth: required
+- params:
+    - name(required) - String
+    - city(required) - String
+    - color_main(required) - Hex Color Value
+    - color_accent(required) - Hex Color Value
+
+### Delete Team
+- path: '/api/team'
+- method: DELETE
+- auth: required
+
+## Player
+### Show All Player
+- path: `/api/player`
+- method: GET
+- auth: public
+
+### Show Player of ID
+- path: `/api/player/{ID}`
+- method: GET
+- auth: pubic
+
+### Create Player
+- path: `/api/player`
+- method: POST
+- auth: required
+- params:
+    - first_name(required) - String
+    - last_name(required) - String
+    - team_id(required, must exist in teams) - int
+    
+### Update Player
+- path: `/api/player/{ID}`
+- method: PUT
+- auth: required
+- params:
+    - first_name - String
+    - last_name - String
+    - team_id(must exist in teams table) - int
+
+### Delete Player
+- path: '/api/player'
+- method: DELETE
+- auth: required
