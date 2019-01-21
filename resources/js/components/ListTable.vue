@@ -18,7 +18,7 @@
                 <th scope="row">
                     <span class="d-none d-lg-block">{{player.id}}</span>
                     <span class="d-lg-none">
-                        <a :href="`/player/${player.id}/edit`">{{player.id}}</a>
+                        <a :href="`/player/${player.id}/edit`"><i class="far fa-edit"></i>&nbsp&nbsp{{player.id}}</a>
                     </span>
                 </th>
                 <td>{{player.first_name}}</td>
