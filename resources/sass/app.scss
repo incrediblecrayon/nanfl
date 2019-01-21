@@ -12,3 +12,91 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+// region General
+  .content-container{
+    padding: 4em 0;
+  }
+
+  .player-list-container{
+    margin: 0;
+
+    @media (min-width: 992px) {
+      margin: 1em 2em;
+    }
+
+  }
+
+  .error{
+    color: $red;
+  }
+// endregion
+
+// region Team Select
+  .team-select-menu{
+    width: 100%;
+    margin: 1em 0;
+
+    @media (min-width: 992px) {
+      max-width: 30em;
+      margin: 0;
+    }
+
+  }
+// endregion
+
+// region Team Titles
+  .team-title-large{
+    text-align: center;
+
+    h1{
+      font-size: 4rem;
+    }
+  }
+
+  .team-title-small{
+    text-align: center;
+
+    h1{
+      font-size: 3.5rem;
+    }
+  }
+
+  .team-title-links{
+    text-align: center;
+
+    a{
+      font-size: 1.5rem;
+    }
+  }
+// endregion
+
+// region
+  .list-table-wrapper{
+    text-align: center;
+    h1{
+      margin-bottom: 1em;
+    }
+
+  }
+// endregion
+
+// region Create/Edit Player
+  .form-player-create-edit-wrapper{
+    text-align: center;
+
+    h1{
+
+    }
+  }
+// endregion
+
+// region Create/Edit Team
+  .form-team-create-edit-wrapper{
+    text-align: center;
+
+    h1{
+
+    }
+  }
+// endregion

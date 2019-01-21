@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
+use Illuminate\Validation\Rule;
 use App\Models\Player;
 use Illuminate\Http\Request;
 use App\Models\Team;
@@ -10,6 +12,19 @@ use Illuminate\Http\Response;
 class TeamController extends Controller
 {
     // TODO - Frontend Methods
+//    /**
+//     * Frontend - Show detailed information of team.  This information shi
+//     *
+//     * @param int $id Team ID
+//     *
+//     * @return View
+//     */
+//    public function showDetailView($id)
+//    {
+//        $teamData = $this->show($id);
+//
+//        return view('team_detail')->with(['teamData' => $teamData]);
+//    }
 
     /**
      * Show all teams
@@ -50,15 +65,21 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //TODO - Centralize validation create + update
-        $cleanData = $request->validate([
-            'name' => 'bail|required|regex:/[a-zA-Z0-9 _-]+/|unique:teams,name',
+        //TODO - Is there another way? Must lowercase to ensure non unique names will fail validation.
+        $dirtyData = $request->all();
+        $dirtyData['name'] = strtolower($dirtyData['name']);
+        $validator = Validator::make($dirtyData, [
             'city' => 'bail|required|regex:/[a-zA-Z0-9 _-]+/',
             'color_main' => 'bail|required|regex:/#[a-zA-Z0-9]{6}/',
-            'color_accent' => 'bail|required|regex:/#[a-zA-Z0-9]{6}/'
+            'color_accent' => 'bail|required|regex:/#[a-zA-Z0-9]{6}/',
+            'name' => 'bail|required|regex:/[a-zA-Z0-9 _-]+/|unique:teams,name',
         ]);
 
-        $newTeam = Team::create($cleanData);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        $newTeam = Team::create($dirtyData);
 
         return response()->json($newTeam, 201);
     }
@@ -71,24 +92,28 @@ class TeamController extends Controller
      *
      * @return JSON Response
      */
-    public function update(Request $request, $id)
-    {
-        //TODO - Centralize validation create + update
-        $cleanData = $request->validate([
-            'name' => 'regex:/[a-zA-Z0-9 _-]+/|unique:teams,name',
-            'city' => 'regex:/[a-zA-Z0-9 _-]+/',
-            'color_main' => 'regex:/#[a-zA-Z0-9]{6}/',
-            'color_accent' => 'regex:/#[a-zA-Z0-9]{6}/'
-        ]);
-
-        $team = Team::findOrFail($id);
-
-        $team->update($cleanData);
-
-        //Perform Update.
-        return response()
-            ->json($team);
-    }
+//    public function update(Request $request, $id)
+//    {
+//        $dirtyData = $request->all();
+//        $dirtyData['name'] = strtolower($dirtyData['name']);
+//        $validator = Validator::make($dirtyData, [
+//            'city' => 'bail|required|regex:/[a-zA-Z0-9 _-]+/',
+//            'color_main' => 'bail|required|regex:/#[a-zA-Z0-9]{6}/',
+//            'color_accent' => 'bail|required|regex:/#[a-zA-Z0-9]{6}/',
+//        ]);
+//
+//        if ($validator->fails()) {
+//            return response()->json($validator->errors(), 422);
+//        }
+//
+//        $team = Team::findOrFail($id);
+//
+//        $team->update($dirtyData);
+//
+//        //Perform Update.
+//        return response()
+//            ->json($team);
+//    }
 
     /**
      * Delete Team and Players associated with team.
