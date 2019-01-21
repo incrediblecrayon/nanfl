@@ -53,6 +53,22 @@
                         <button :disabled="$v.$invalid" class="btn btn-primary" @click="processCreateOrUpdate">Submit</button>
                     </div>
 
+                    <div class="backend-errors" v-if="errors">
+                        <h3 class="error">Hmmm, There are some validations issues...</h3>
+
+                        <div v-for="(value,key) in errors">
+                            <div class="alert alert-warning" role="alert" v-for="message in value">
+                                <span>{{message}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="alert alert-primary" role="alert" v-if="success">
+                        Player Saved!
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -83,6 +99,8 @@
                 },
                 loading:false,
                 apiToken:"",
+                errors:null,
+                success:false
             }
         },
         created(){
@@ -107,6 +125,7 @@
             },
             processCreateOrUpdate(){
                 this.loading = true;
+                this.success = false;
 
                 axios({
                     method:(this.player_id) ? 'put':'post',
@@ -121,8 +140,10 @@
                     }
                 }).then((response)=>{
                     this.loading = false;
+                    this.success = true;
                 }).catch((response) => {
                     this.loading = false;
+                    this.errors = response.response.data;
                     console.log("Issue creating or updating");
                 });
             },

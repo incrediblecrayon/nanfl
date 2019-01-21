@@ -9,8 +9,11 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import Vuelidate from 'vuelidate'
-Vue.use(Vuelidate)
+import Vuelidate from 'vuelidate';
+Vue.use(Vuelidate);
+
+import Notifications from 'vue-notification';
+Vue.use(Notifications);
 
 /**
  * The following block of code may be used to automatically register your

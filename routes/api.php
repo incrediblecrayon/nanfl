@@ -23,7 +23,7 @@ Route::get('team/{id}','TeamController@show')->where('id', '[0-9]+');
 
 Route::middleware(['auth:api'])->group(function(){
     Route::post('team','TeamController@store');
-    Route::put('team/{id}','TeamController@update')->where('id', '[0-9]+');
+//    Route::put('team/{id}','TeamController@update')->where('id', '[0-9]+');
     Route::delete('team/{id}','TeamController@destroy')->where('id', '[0-9]+');
 });
 // endregion

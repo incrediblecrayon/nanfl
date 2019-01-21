@@ -93,6 +93,13 @@ class WebEndpointTest extends TestCase
      *
      * @return void
      */
+//    public function testEditTeamPageAccess()
+//    {
+//        $response = $this->get("/team/2/edit");
+//
+//        $response
+//            ->assertStatus(200);
+//    }
 
     /**
      * Create Player frontend

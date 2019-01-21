@@ -2,9 +2,9 @@
     <div>
         <div class="team-title-container">
             <team-title :team-data="teamData"> <!-- TODO - Remove useless data.-->
-                <template slot="links">
-                    <a href="/team/edit"><i class="far fa-edit"></i>&nbsp&nbspEdit Team</a>
-                </template>
+                <!--<template slot="links">-->
+                    <!--<a href="/team/edit"><i class="far fa-edit"></i>&nbsp&nbspEdit Team</a>-->
+                <!--</template>-->
             </team-title>
         </div>
 

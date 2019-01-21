@@ -12,7 +12,7 @@
         <!--NAV LINKS FROM SLOT-->
         <div class="team-title-links">
             <slot name="links">
-                <a href="/team/">TEAM LINK</a>
+                <!--<a href="/team/">TEAM LINK</a>-->
             </slot>
         </div>
     </div>
