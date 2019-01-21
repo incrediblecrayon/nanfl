@@ -30,6 +30,10 @@ Route::get('/player/{id}/edit', function($id){
     return view('player_create_edit')->with(['player_id' => $id]);
 })->where('id', '[0-9]+');
 
+Route::get("/teams", function(){
+    return view('team_all');
+});
+
 //Create Team
 Route::get('/team/create', function(){
     return view('team_create_edit')->with(['team_id' => null]);

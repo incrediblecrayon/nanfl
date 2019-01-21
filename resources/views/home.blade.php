@@ -11,7 +11,7 @@
                     <p class="lead">You might be thinking 'Hey, isn't this like the NFL?' Rest assured friend, it is not.</p>
                     <hr class="my-4">
                     <p>Please do not tell the NFL that we exist. Fight club rules.</p>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">NaNFL Teams</a>
+                    {{--<a class="btn btn-primary btn-lg" href="/teams" role="button">NaNFL Teams</a>--}}
                 </div>
             </div>
         </div>
