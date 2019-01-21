@@ -15,8 +15,22 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+//Team Detail
 Route::get('/team/{id}', function($id){
     return view('team_detail')->with(['team_id' => $id]);
 })->where('id', '[0-9]+')->name('team_detail');
 
-//Route::get('/team/{id}','TeamController@showDetailView')->where('id', '[0-9]+');
+//Create Player
+Route::get('/player/create', function(){
+    return view('player_create_edit')->with(['player_id' => null]);
+});
+
+//Edit Player
+Route::get('/player/{id}/edit', function($id){
+    return view('player_create_edit')->with(['player_id' => $id]);
+})->where('id', '[0-9]+');
+
+//Create Team
+Route::get('/team/create', function(){
+    return view('team_create_edit')->with(['team_id' => null]);
+});

@@ -26,6 +26,10 @@
     }
 
   }
+
+  .error{
+    color: $red;
+  }
 // endregion
 
 // region Team Select
@@ -74,5 +78,25 @@
       margin-bottom: 1em;
     }
 
+  }
+// endregion
+
+// region Create/Edit Player
+  .form-player-create-edit-wrapper{
+    text-align: center;
+
+    h1{
+
+    }
+  }
+// endregion
+
+// region Create/Edit Team
+  .form-team-create-edit-wrapper{
+    text-align: center;
+
+    h1{
+
+    }
   }
 // endregion
