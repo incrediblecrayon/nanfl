@@ -34,7 +34,7 @@ class Team extends Model
 
     public function setNameAttribute($value)
     {
-        $this->attributes['name'] = strtolower($value);
+        $this->attributes['name'] = strip_tags(strtolower($value));
     }
 
     public function getCityAttribute($value)
@@ -44,7 +44,7 @@ class Team extends Model
 
     public function setCityAttribute($value)
     {
-        $this->attributes['city'] = strtolower($value);
+        $this->attributes['city'] = strip_tags(strtolower($value));
     }
 
     //Formatted Team Name.

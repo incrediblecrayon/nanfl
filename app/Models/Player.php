@@ -28,7 +28,7 @@ class Player extends Model
 
     public function setFirstNameAttribute($value)
     {
-        $this->attributes['first_name'] = strtolower($value);
+        $this->attributes['first_name'] = strip_tags(strtolower($value));
     }
 
     public function getLastNameAttribute($value)
@@ -38,7 +38,7 @@ class Player extends Model
 
     public function setLastNameAttribute($value)
     {
-        $this->attributes['last_name'] = strtolower($value);
+        $this->attributes['last_name'] = strip_tags(strtolower($value));
     }
 //    endregion
 }
