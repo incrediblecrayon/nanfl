@@ -12,3 +12,23 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+// region General
+  .content-container{
+    padding: 4em 0em;
+  }
+
+// endregion
+
+// region Team Select
+  .team-select-menu{
+    width: 100%;
+    margin: 1em 0em;
+
+    @media (min-width: 992px) {
+      max-width: 30em;
+      margin: 0em;
+    }
+
+  }
+// endregion

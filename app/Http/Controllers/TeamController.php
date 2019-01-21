@@ -10,6 +10,19 @@ use Illuminate\Http\Response;
 class TeamController extends Controller
 {
     // TODO - Frontend Methods
+//    /**
+//     * Frontend - Show detailed information of team.  This information shi
+//     *
+//     * @param int $id Team ID
+//     *
+//     * @return View
+//     */
+//    public function showDetailView($id)
+//    {
+//        $teamData = $this->show($id);
+//
+//        return view('team_detail')->with(['teamData' => $teamData]);
+//    }
 
     /**
      * Show all teams
