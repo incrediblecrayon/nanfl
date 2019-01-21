@@ -27,7 +27,7 @@ Instructions for first run. Docker is not required but it makes things a little 
     - `$php artisan migrate`
     - `$php artisan passport:install`
     - `$php artisan db:seed`
-    - Create User and User personal Access token in tinker:
+    - Create User personal Access token in tinker:[Personal Access Token](https://laravel.com/docs/5.7/passport#personal-access-tokens)
     - flush config
  
 ## Docker Commands
@@ -39,7 +39,8 @@ Instructions for first run. Docker is not required but it makes things a little 
     
 # deploy
 - In container:
-    - Set up SSH Agent from forwarded file: `$ eval $(ssh-agent) && ssh-add`
+    - Set up SSH Agent from forwarded file: 
+        -`$ eval $(ssh-agent) && ssh-add`
     - `vendor/bin/dep deploy production --branch=master -vvv`
     
     
