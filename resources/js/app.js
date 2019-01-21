@@ -23,6 +23,8 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('team-select', require('./components/TeamSelect.vue').default);
 Vue.component('team-detail-container', require('./components/TeamDetailContainer.vue').default);
+Vue.component('team-title', require('./components/TeamTitle.vue').default);
+Vue.component('list-table', require('./components/ListTable.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

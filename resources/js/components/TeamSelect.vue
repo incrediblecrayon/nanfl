@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        // TODO - Better Prop Handling.
+        // TODO - Better Prop Handling - add verification.
         // TODO - Callout for Teams if needed.
         props:["teamsData","teamsEndpoint"],
         data(){
@@ -28,8 +28,7 @@
             this.teams = this.teamsData;
         },
         mounted() {
-            //Check if we need to grab team data.
-            console.log('Component mounted.')
+            //TODO - Check if we need to grab team data from the server using endpoint.
         },
         methods: {
             test(teamID){

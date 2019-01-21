@@ -1,7 +1,20 @@
 <template>
     <div>
-        <!--Dumb Component for title-->
-        <!--Dumb Component for player listing.-->
+        <div class="team-title-container">
+            <team-title :team-data="teamData"> <!-- TODO - Remove useless data.-->
+                <template slot="links">
+                    <a href="/team/edit"><i class="far fa-edit"></i>&nbsp&nbspEdit Team</a>
+                </template>
+            </team-title>
+        </div>
+
+        <div class="player-list-container">
+            <list-table :list-data="teamData.players">
+                <template slot="list-title">
+                    <h1>Player List</h1>
+                </template>
+            </list-table>
+        </div>
     </div>
 </template>
 
@@ -15,7 +28,9 @@
         },
         data(){
             return {
-                teamData:{},
+                teamData:{
+                    players:[]
+                },
                 loading: false
             }
         },

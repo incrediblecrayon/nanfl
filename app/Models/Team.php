@@ -14,7 +14,8 @@ class Team extends Model
     ];
 
     protected $appends = [
-        'title'
+        'title',
+        'short_title'
     ];
 
 //    region Relations
@@ -50,6 +51,12 @@ class Team extends Model
     public function getTitleAttribute()
     {
         return title_case($this->attributes['city'] . " " . $this->attributes['name']);
+    }
+
+    //Short Version of Team Name
+    public function getShortTitleAttribute()
+    {
+        return title_case(substr($this->attributes['city'],0,1) . ". " . substr($this->attributes['name'],0,3));
     }
 //    endregion
 }
