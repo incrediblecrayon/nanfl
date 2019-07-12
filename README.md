@@ -69,7 +69,7 @@ Some Basic API Documentation
     - color_accent(required) - Hex Color Value
 
 ### Delete Team
-- path: '/api/team'
+- path: `/api/team`
 - method: DELETE
 - auth: required
 
