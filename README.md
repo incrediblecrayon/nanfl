@@ -103,6 +103,6 @@ Some Basic API Documentation
     - team_id(must exist in teams table) - int
 
 ### Delete Player
-- path: '/api/player'
+- path: `/api/player`
 - method: DELETE
 - auth: required
