@@ -1,5 +1,5 @@
 # NaNFL
-Not a National Football League
+Not a National Football League.  A simple `Laravel` API with a `Vue.js` front end. 
 
 # Local Environment Configuration
 Instructions for first run. Docker is not required but it makes things a little easier.
