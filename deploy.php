@@ -18,6 +18,8 @@ add('shared_files', [
 ]);
 add('shared_dirs', []);
 
+set('ssh_multiplexing', false);
+
 // Writable dirs by web server
 //set('writable_mode','chgrp');
 //set('http_group','www-data');
