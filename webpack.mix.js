@@ -11,5 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
+// Source map is set in package.json
+
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css');
