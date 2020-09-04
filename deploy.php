@@ -86,7 +86,7 @@ task('deploy', [
     'artisan:view:clear',
     'artisan:cache:clear',
     'artisan:config:cache',
-    'artisan:optimize',
+//    'artisan:optimize', // Not Needed due to route closures
     'deploy:symlink',
     'deploy:unlock',
     'cleanup',
